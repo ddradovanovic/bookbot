@@ -3,7 +3,11 @@ def main():
     with open(book_path) as f:
         text = f.read()
         print(get_words_count(text))
-        print(count_letters(text))
+        letter_count = count_letters(text)
+        print(letter_count)
+        sorted_letters = sorting(letter_count)
+        print("/////////")
+        print(sorted_letters)
 
 def get_words_count(text):
     words = text.split()
@@ -18,6 +22,13 @@ def count_letters(text):
         else:
             letters[letter] = 1
     return letters
+
+def sorting(letters):
+    letters_list = []
+    for letter in letters:
+        letters_list.append({letter:letters[letter]})
+    return letters_list
+
 
 if __name__ == '__main__':
     main()
